@@ -1,7 +1,7 @@
 # XRP display
 This project describes a small TFT display designed for use  with [XRP robot](https://experientialrobotics.org/)
 
-
+![Main view](https://github.com/shurik179/XRPdisplay/blob/main/docs/images/main.jpg)
 
 ## Features
 
