@@ -22,7 +22,7 @@ Download all files in software/lib folder of the |github| and copy them to /lib 
 (I use Thonny edtor for that). 
 
 Now run `displaytest.py` file for demonstration of the board capabilities. This file is amply commented, 
-making it easy to copy. 
+making it easy to modify. 
 
 Library reference
 #################
@@ -46,6 +46,7 @@ Neopixels
 ---------
 
 .. function:: set_leds(lcolor, rcolor)
+
    Sets the colors of the two Neopixel LEDs. `lcolor` sets the color of left LED, and `rcolor`, 
    of the right one.  `rcolor` is optional; if omitted, both LEDs are set to the same color. 
    Each color should be a triple of numbers ranging 0-255, desribing intensity of red, green, and blue LEDs, e.g. 
@@ -58,10 +59,12 @@ Buttons
 -------
 
 .. function:: wait_for_button()
+
    Waits until user presses and releases one of two buttons. Returns button index: 1 for button A, 2 for button B. 
 
 
 .. function:: is_button_pressed(button)
+
    Returns true if the corresponding button is pressed and zero otherwise. `button` must be one of `d.buttonA`, `d.buttonB`. 
 
 
