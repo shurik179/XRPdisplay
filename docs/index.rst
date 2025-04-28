@@ -4,31 +4,33 @@ XRP display
 
 .. figure:: images/main.jpg
     :alt: Main view
-    :width: 85%
+    :width: 60%
 
 
-This document describes the reflectance array sensor created by `shurik179 <https://github.com/shurik179>`__. 
-It is intended for use with small robots for tasks such as line following, sumo robots, and more.  All software and hardware 
-files are available under an open source license from the project |github|; 
-you can also buy a completed sensor from my Tindie store. 
+This document describes the XRP display, an add-on board for `XRP robot <https://experientialrobotics.org/>`__
 
-Below are the key features of this sensor.
 
-* **Dimensions:** 20x60 mm
-* includes **6 individual reflectance sensors** (long range - 
-  optimal distance to measured object is 4mm)
-* has **i2c interface**, which supports normal (100k) and fast (400k) speeds
-* contains an MCU (attiny 1616) which takes care of reading individual sensor input,  applying calibrations, and computing line position for line following tasks
-* provides **qwiic/stemma qt connector** as well as standard 0.1" header connector (requires soldering)
-* can be turned off to save batteries
-* provided micropython/Circuit Python library (Arduino library will be added shortly)
 
+.. figure:: images/front.jpg
+    :alt: Front view
+    :width: 60%
+
+
+
+Below are the key features of this board.
+
+* Plugs into the headers on XRP controller (warning: this doesn't work with Beta version!)
+* provides a 135x240 color TFT display, using SPI bus of the XRP controller
+* provides two addressable RGB LEDs (Neopixels)
+* two user buttons 
+* a power switch
+* comes with an easy to use micropython library
 
 .. toctree::
     :caption: Table of Contents
     :maxdepth: 1
 
-    board
+    assembly
     software_installation
-    library
+    usage
   
