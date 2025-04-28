@@ -1,0 +1,7 @@
+﻿Designator,Footprint,Quantity,Value,LCSC Part #
+"D1, D2",SK6812-MINI-E,2,SK6812MINI-E,
+"J1, J2",PinHeader_2x20_P2.54mm_Vertical_SMD,2,Conn_02x20_Odd_Even,C6332245
+R1,0603,1,33k,
+"SW1, SW2",SW_TH_Tactile_Omron_B3F-10xx,2,SW_SPST,
+SW3,SW_XKB_SS12D10L3,1,SW_SPDT,
+U1,TFT_135x240_1_14in,1,ST7789-TFT,
