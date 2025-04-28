@@ -26,11 +26,12 @@ Below are the key features of this board.
 * a power switch
 * comes with an easy to use micropython library
 
+All board design files and software are available from |github| under an open source license. 
+
 .. toctree::
     :caption: Table of Contents
     :maxdepth: 1
 
     assembly
-    software_installation
     usage
   

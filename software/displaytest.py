@@ -11,7 +11,7 @@ GREEN = (0,32,0)
 BLUE = (0,0,64)
 
 
-d = xrpdisplay.XrpDisplay();
+d = xrpdisplay.XrpDisplay()
 # Setting LED colors. First argument is color of left LED, second, of right.
 # Second argument is optional; if omitted, same color is used for both LEDs:
 # d.set_leds(RED)
