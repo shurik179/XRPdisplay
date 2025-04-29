@@ -2,23 +2,23 @@
 Usage
 #################
 
-Connecting to XRP controller
+Attaching to XRP controller
 ############################
-To connect it to XRP controller, put the switch on the controller in "off" position. C
-onnect all motors, servos, and sensors you intend to use to XRP controller. It is also advisabe to unplug 
+To attach the bord  to XRP controller, put the switch on the controller in "off" position. 
+Connect all motors, servos, and sensors you intend to use to XRP controller. It is also advisabe to unplug 
 the battery cable. 
 
 Plug the board into the headers on the controller as shown in the photos. Make sure they 
-are aligned and not off by one. Whne plugging in, you might need to push hard - but never push 
+are aligned and not off by one. When plugging in, you might need to push hard - but never push 
 on the display itself.  
 
-After plugging in, you can reconnect the battery and turn the swithc on the board to "on"; switch on the 
+After plugging in, you can reconnect the battery and turn the switch on the board to "on"; switch on the 
 controller should stay in off position.
 
 Software installation
 ######################
 
-Download all files in software/lib folder of the |github| and copy them to /lib folder of your XRP controller 
+Download all files in `software/lib` folder of the |github| and copy them to /lib folder of your XRP controller 
 (I use Thonny edtor for that). 
 
 Now run `displaytest.py` file for demonstration of the board capabilities. This file is amply commented, 
@@ -27,15 +27,16 @@ making it easy to modify.
 Library reference
 #################
 
-To use the display in your own micropython code, use the commnads below 
+To use the display in your own micropython code, use the commands below 
 
 Initialization
 --------------
 
-To initialize the display, put htis in the beginning of your code:
+To initialize the display, put this in the beginning of your code:
 
 
 .. code-block:: python
+
    import xrpdisplay
    d = xrpdisplay.XrpDisplay()
 
@@ -60,17 +61,41 @@ Buttons
 
 .. function:: wait_for_button()
 
-   Waits until user presses and releases one of two buttons. Returns button index: 1 for button A, 2 for button B. 
+   Waits until user presses and releases one of the buttons. Returns button index: 1 for button A, 2 for button B. 
 
 
 .. function:: is_button_pressed(button)
 
-   Returns true if the corresponding button is pressed and zero otherwise. `button` must be one of `d.buttonA`, `d.buttonB`. 
+   Returns true if the corresponding button is pressed and false otherwise. `button` must be one of `d.buttonA`, `d.buttonB`. 
 
 
-Display
--------       
+
+Display: basic operations
+--------------------------       
+
+.. function:: clear()
+
+   Clears display, filling it with black pixels. 
+
+.. function:: write_line(i, text, font = None, fg = None)
+
+   Writes text on i-th line of display (i ranges 1--6). The text can be split into several lines using `\n` escape sequence. 
+   For example, `wrte_line(2, 'press button \n to continue')` will write `press button` on line 2 and `to continue` on line 3. 
+   This function automatically cleares these lines before writing new text. 
+
+   Arguments `font` and `fg` (foreground color) are optional; if omitted, it will use default font (`d.smallfont`, 
+   which is Helvetica bold) and white color. Other possible fonts are `d.smallfont2` (PT Sans Narrow_24), similar in size to the default 
+   font but slightly more narrow, and `d.largefont` (PT Sans Narrow_32), a larger font. Note that `d.largefont` is taller than line 
+   height, so using e.g. `d.write_line(2, "some text", font = d.largefont)` will actually get into the space reserved for line 3 as well as 2. 
+   You might need to manually clear line 3 (by using `d.write_line(3,'')`) if it was non-empty. 
+
+   Argument `fg` should be a color in RGB565 encoding; note that this is different 
+   from the triple of values used for Neopixel colors -- these are not interchangeable. The library contains several predefined colors: 
+   BLACK, DARKGREY, NAVY, d.BLUE,GREEN,TEAL,AZURE,LIME,CYAN,MAROON, PURPLE, OLIVE, GREY, SILVER, RED, ROSE, MAGENTA,ORANGE,YELLOW,WHITE
+   (all are properties of xrpdisplay object, e.g. `d.BLACK`).
 
 
+Display: advanced 
+------------------
 
 
