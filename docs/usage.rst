@@ -83,7 +83,7 @@ Display: basic operations
 .. function:: write_line(i, text, font = None, fg = None)
 
    Writes text on i-th line of display (i ranges 1--6). The text can be split into several lines using `\\n` escape sequence. 
-   For example, `wrte_line(2, 'press button \n to continue')` will write `press button` on line 2 and `to continue` on line 3. 
+   For example, `write_line(2, 'press button \\n to continue')` will write `press button` on line 2 and `to continue` on line 3. 
    This function automatically cleares these lines before writing new text. 
 
    Arguments `font` and `fg` (foreground color) are optional; if omitted, it will use default font (`d.smallfont`, 
@@ -94,7 +94,8 @@ Display: basic operations
 
    Argument `fg` should be a color in RGB565 encoding; note that this is different 
    from the triple of values used for Neopixel colors -- these are not interchangeable. The library contains several predefined colors: 
-   BLACK, DARKGREY, NAVY, BLUE, GREEN, TEAL,AZURE, LIME, CYAN, MAROON, PURPLE, OLIVE, GREY, SILVER, RED, ROSE, MAGENTA,ORANGE,YELLOW,WHITE
+   BLACK, DARKGREY, NAVY, BLUE, GREEN, TEAL, AZURE, LIME, CYAN, MAROON, PURPLE, OLIVE, GREY, SILVER, RED, ROSE, MAGENTA, ORANGE,
+   YELLOW, WHITE
    (all are properties of xrpdisplay object, e.g. `d.BLACK`).
 
 
