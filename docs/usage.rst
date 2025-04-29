@@ -82,7 +82,7 @@ Display: basic operations
 
 .. function:: write_line(i, text, font = None, fg = None)
 
-   Writes text on i-th line of display (i ranges 1--6). The text can be split into several lines using `\n` escape sequence. 
+   Writes text on i-th line of display (i ranges 1--6). The text can be split into several lines using `\\n` escape sequence. 
    For example, `wrte_line(2, 'press button \n to continue')` will write `press button` on line 2 and `to continue` on line 3. 
    This function automatically cleares these lines before writing new text. 
 
@@ -106,7 +106,7 @@ Display: basic operations
 Display: advanced 
 ------------------
 
-When the above functions are not enough, you can use all graphics methoids of micropythin `framebuffer` class with `d.display` object, for example 
+When the above functions are not enough, you can use all graphics methods of micropython `framebuffer` class with `d.display` object, for example 
 `d.display.rect(0,0,40,40, d.RED)`. Full list of supported framebuffer methods can be found at https://docs.micropython.org/en/latest/library/framebuf.html. 
 Note that you will need to call `d.display.show()` to make the display show graphics constructed in this way (unlike `write_line` command that doesn't 
 require that).
@@ -121,6 +121,7 @@ e.g.
    d.display.show()
 
 
-Full documentation of `write()` method can be found at https://github.com/easytarget/microPyEZfonts/blob/main/WRITER.md
+Full documentation of `write()` method can be found at 
+https://github.com/easytarget/microPyEZfonts/blob/main/WRITER.md .
 As before, you will need to call `d.display.show()` to make these texts appear on screen. 
 
