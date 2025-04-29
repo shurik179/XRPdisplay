@@ -18,8 +18,11 @@ controller should stay in off position.
 Software installation
 ######################
 
-Download all files in `software/lib` folder of the |github| and copy them to /lib folder of your XRP controller 
-(I use Thonny edtor for that). 
+Software is based on `st7789 display driver <https://github.com/easytarget/st7789-framebuffer>`__ 
+by `Owen Carter <https://github.com/easytarget>`__. 
+
+To install the software, download all files in `software/lib` folder of the |github| and copy them 
+to /lib folder of your XRP controller (I use Thonny edtor for that). 
 
 Now run `displaytest.py` file for demonstration of the board capabilities. This file is amply commented, 
 making it easy to modify. 
@@ -91,11 +94,33 @@ Display: basic operations
 
    Argument `fg` should be a color in RGB565 encoding; note that this is different 
    from the triple of values used for Neopixel colors -- these are not interchangeable. The library contains several predefined colors: 
-   BLACK, DARKGREY, NAVY, d.BLUE,GREEN,TEAL,AZURE,LIME,CYAN,MAROON, PURPLE, OLIVE, GREY, SILVER, RED, ROSE, MAGENTA,ORANGE,YELLOW,WHITE
+   BLACK, DARKGREY, NAVY, BLUE, GREEN, TEAL,AZURE, LIME, CYAN, MAROON, PURPLE, OLIVE, GREY, SILVER, RED, ROSE, MAGENTA,ORANGE,YELLOW,WHITE
    (all are properties of xrpdisplay object, e.g. `d.BLACK`).
+
+
+.. figure:: images/six_lines.jpg
+    :alt: Main view
+    :width: 60%
 
 
 Display: advanced 
 ------------------
 
+When the above functions are not enough, you can use all graphics methoids of micropythin `framebuffer` class with `d.display` object, for example 
+`d.display.rect(0,0,40,40, d.RED)`. Full list of supported framebuffer methods can be found at https://docs.micropython.org/en/latest/library/framebuf.html. 
+Note that you will need to call `d.display.show()` to make the display show graphics constructed in this way (unlike `write_line` command that doesn't 
+require that).
+
+You can also place text in any position on screen, using `write()` method with any of the fonts (`d.smallfont`, `d,smallfont2`, `d.largefont`), 
+e.g. 
+
+
+.. code-block:: python
+
+   d.largefont.write(20, 30, "Welcome!", fg = d.YELLOW)
+   d.display.show()
+
+
+Full documentation of `write()` method can be found at https://github.com/easytarget/microPyEZfonts/blob/main/WRITER.md
+As before, you will need to call `d.display.show()` to make these texts appear on screen. 
 

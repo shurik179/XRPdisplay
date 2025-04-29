@@ -22,7 +22,7 @@ they are fragile.
 
 
 
-After soldering all components, use flush cutters trim the pins of the TFT display and the switch protruding 
+After soldering all components, use flush cutters to trim the pins of the TFT display and the switch protruding 
 from the bottom of the board.  
 
 .. figure:: images/bottom.jpg
