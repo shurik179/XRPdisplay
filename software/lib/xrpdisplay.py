@@ -13,7 +13,7 @@ This is a micropython library for XRP display by Alexander Kirillov.
 """
 
 # import micropython libraries 
-from machine import Pin, SPI
+from machine import Pin, SPI, ADC
 import time
 import sys
 import neopixel
@@ -33,7 +33,7 @@ disp_cs     = 17
 neopixel_pin = 37
 buttonA_pin = 36
 buttonB_pin = 12 
-
+vin_pin     = 46
 
 class XrpDisplay:
     def __init__(self):
@@ -82,9 +82,15 @@ class XrpDisplay:
         self.smallfont2 = ezFBfont(self.display, PTSans_Narrow_24, fg = self.WHITE, cswap = True)
 
   
-        self.largefont.write('Welcome to XRP',20 , 40, fg = self.RED)
+        self.largefont.write('Welcome to XRP',20 , 20, fg = self.RED)
         #self.smallfont2.write('Press any button \nto continue', 5, 85)
+        
+        #get battery voltage
+        self.adc = ADC(Pin(vin_pin))
+        
+        voltage = self.adc.read_u16()*(3.3/65535)*4.03
 
+        self.smallfont2.write(f'Battery: {voltage:1.2f}v', 40, 55, fg = self.BLUE)
         self.display.show()
         
     def clear(self):
